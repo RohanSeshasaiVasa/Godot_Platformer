@@ -1,11 +1,23 @@
 extends CharacterBody2D
 
 
-const SPEED = 100.0
+const SPEED = 250.0
 const JUMP_VELOCITY = -500.0
+const FALL_LIMIT = 600.0
 
+@onready var death_label: Label = $DeathUI/DeathLabel
+@onready var win_label: Label = $DeathUI/WinLabel
+
+var dead := false
+var won := false
+
+func _ready() -> void:
+	death_label.hide()
+	win_label.hide()
 
 func _physics_process(delta: float) -> void:
+	if dead or won:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -23,3 +35,23 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+	if global_position.y > FALL_LIMIT:
+		die()
+		
+func die() -> void:
+	dead = true
+	velocity = Vector2.ZERO
+	death_label.show()
+	await get_tree().create_timer(3.0).timeout
+	get_tree().reload_current_scene()
+
+func win() -> void:
+	won =true
+	velocity = Vector2.ZERO
+	win_label.show()
+
+
+func _on_door_body_entered(body: Node2D) -> void:
+	if body == self:
+		win()

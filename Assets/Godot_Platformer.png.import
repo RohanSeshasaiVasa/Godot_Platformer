@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx3bdnnbyyufg"
-path="res://.godot/imported/Steve_(Minecraft).png-a7d52b7bb68b9ea35b75422fb5b1da50.ctex"
+uid="uid://ob2wu83a67rx"
+path="res://.godot/imported/Godot_Platformer.png-cdbe42fb4f9facd026bfcffa4c6409ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Steve_(Minecraft).png"
-dest_files=["res://.godot/imported/Steve_(Minecraft).png-a7d52b7bb68b9ea35b75422fb5b1da50.ctex"]
+source_file="res://Assets/Godot_Platformer.png"
+dest_files=["res://.godot/imported/Godot_Platformer.png-cdbe42fb4f9facd026bfcffa4c6409ed.ctex"]
 
 [params]
 

@@ -1,3 +1,14 @@
-# Godot 4+ specific ignores
 .godot/
-/android/
+Exports/
+web_export/
+export_presets.cfg
+*.pck
+*.wasm
+*.zip
+Godot_Platformer.js
+Godot_Platformer.audio.position.worklet.js
+Godot_Platformer.audio.worklet.js
+index.js
+index.audio.position.worklet.js
+index.audio.worklet.js
+Godot_platformer/

@@ -7,6 +7,8 @@ const FALL_LIMIT = 600.0
 
 @onready var death_label: Label = $DeathUI/DeathLabel
 @onready var win_label: Label = $DeathUI/WinLabel
+@onready var message_label: Label = get_node_or_null("DeathUI/MessageLabel")
+@onready var home_label: Label = get_node_or_null("DeathUI/HomeLabel")
 
 var dead := false
 var won := false
@@ -14,6 +16,23 @@ var won := false
 func _ready() -> void:
 	death_label.hide()
 	win_label.hide()
+	if home_label:
+		home_label.hide()
+	if message_label:
+		message_label.show()
+		await get_tree().create_timer(5.0).timeout
+		if not dead and not won:
+			message_label.hide()
+
+func reach_home() -> void:
+	if won or dead:
+		return
+	won = true
+	velocity = Vector2.ZERO
+	if message_label:
+		message_label.hide()
+	if home_label:
+		home_label.show()
 
 func _physics_process(delta: float) -> void:
 	if dead or won:
@@ -40,18 +59,28 @@ func _physics_process(delta: float) -> void:
 		die()
 		
 func die() -> void:
+	if dead or won:
+		return
 	dead = true
 	velocity = Vector2.ZERO
+	if message_label:
+		message_label.hide()
 	death_label.show()
 	await get_tree().create_timer(3.0).timeout
 	get_tree().reload_current_scene()
 
 func win() -> void:
-	won =true
+	if won or dead:
+		return
+	won = true
 	velocity = Vector2.ZERO
 	win_label.show()
 
 
 func _on_door_body_entered(body: Node2D) -> void:
 	if body == self:
-		win()
+		get_tree().change_scene_to_file("res://overworld.tscn")
+		
+func _on_home_body_entered(body:Node2D) -> void:
+	if body == self:
+		reach_home()

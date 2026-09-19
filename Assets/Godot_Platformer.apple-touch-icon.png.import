@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ovsh7cynntw"
-path="res://.godot/imported/Door.png-69503ba9367bcfa2ab8de46ca34fdb85.ctex"
+uid="uid://ctilfi3e068ge"
+path="res://.godot/imported/Godot_Platformer.apple-touch-icon.png-08e4372e9beb4870d72e025374359b65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Door.png"
-dest_files=["res://.godot/imported/Door.png-69503ba9367bcfa2ab8de46ca34fdb85.ctex"]
+source_file="res://Assets/Godot_Platformer.apple-touch-icon.png"
+dest_files=["res://.godot/imported/Godot_Platformer.apple-touch-icon.png-08e4372e9beb4870d72e025374359b65.ctex"]
 
 [params]
 

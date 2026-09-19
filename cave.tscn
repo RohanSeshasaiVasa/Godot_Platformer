@@ -1,15 +1,15 @@
-[gd_scene format=4 uid="uid://bxl46okn8vymg"]
+[gd_scene format=4 uid="uid://b4b1egocxi0tg"]
 
-[ext_resource type="Script" uid="uid://bfo20m4ki6yfw" path="res://player.gd" id="1_h2yge"]
-[ext_resource type="Texture2D" uid="uid://cx3bdnnbyyufg" path="res://Steve_(Minecraft).png" id="2_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://dq7k2aal7yhsh" path="res://Block.png" id="2_h2yge"]
-[ext_resource type="Texture2D" uid="uid://7ovsh7cynntw" path="res://Door.png" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://bfo20m4ki6yfw" path="res://player.gd" id="1_23xot"]
+[ext_resource type="Texture2D" uid="uid://dq7k2aal7yhsh" path="res://Assets/Block.png" id="2_23xot"]
+[ext_resource type="Texture2D" uid="uid://cx3bdnnbyyufg" path="res://Assets/Steve_(Minecraft).png" id="2_xtwoi"]
+[ext_resource type="Texture2D" uid="uid://7ovsh7cynntw" path="res://Assets/Door.png" id="3_xtwoi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bde3n"]
 size = Vector2(12, 11)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
-texture = ExtResource("2_h2yge")
+texture = ExtResource("2_23xot")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -200,37 +200,41 @@ size = Vector2(18, 34)
 
 [node name="Node" type="Node" unique_id=819677634]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=716149381]
-script = ExtResource("1_h2yge")
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1887265569]
+script = ExtResource("1_23xot")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1969179027]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=607968503]
 position = Vector2(206.00002, 441)
 scale = Vector2(0.10593474, 0.1102455)
-texture = ExtResource("2_1bvp3")
+texture = ExtResource("2_xtwoi")
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=403438582]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1362612554]
 position = Vector2(204, 454.5)
 shape = SubResource("RectangleShape2D_bde3n")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1831312570]
-position = Vector2(228, 490)
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=228827361]
+position = Vector2(203, 436)
 
-[node name="DeathUI" type="CanvasLayer" parent="Player" unique_id=890246680]
+[node name="DeathUI" type="CanvasLayer" parent="Player" unique_id=332206405]
 
-[node name="DeathLabel" type="Label" parent="Player/DeathUI" unique_id=1184109545]
+[node name="DeathLabel" type="Label" parent="Player/DeathUI" unique_id=1057001217]
 offset_left = 427.0
 offset_top = 413.0
 offset_right = 548.0
 offset_bottom = 440.0
 text = "FAHHHHHH!!!!!"
 
-[node name="WinLabel" type="Label" parent="Player/DeathUI" unique_id=2100154155]
+[node name="WinLabel" type="Label" parent="Player/DeathUI" unique_id=947448259]
 offset_left = 442.0
 offset_top = 133.0
 offset_right = 561.0
 offset_bottom = 156.0
 text = "You Escaped !!!!"
+
+[node name="MessageLabel" type="Label" parent="Player/DeathUI" unique_id=1926446914]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1182635321]
 scale = Vector2(2, 2)
@@ -242,7 +246,7 @@ tile_set = SubResource("TileSet_bde3n")
 [node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=154526503]
 position = Vector2(1088, 212)
 scale = Vector2(0.36963174, 0.39611867)
-texture = ExtResource("4_1bvp3")
+texture = ExtResource("3_xtwoi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=948458467]
 position = Vector2(1089, 221)
